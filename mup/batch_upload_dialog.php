@@ -17,6 +17,7 @@
 				
 				imageSizeLimit : '5MB',
 				imageFileTypes : '*.*',
+				imageFileTypesDesc : 'All Files',
 				imageUploadLimit : '1000',
 				filePostName : 'imgFile'
 			});
@@ -29,7 +30,7 @@
 						}
 						editor.hideDialog();
 						window.returnValue="";//JSON.stringify(urlList); 
-						window.close(); 
+						window.close();
 					}
 				});
 			});

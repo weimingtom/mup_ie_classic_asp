@@ -8,6 +8,7 @@
 	<script charset="utf-8" src="kindeditor-4.1.10/kindeditor.js"></script>
 	<script charset="utf-8" src="kindeditor-4.1.10/lang/zh_CN.js"></script>
 	<script charset="utf-8" src="kindeditor-4.1.10/plugins/code/prettify.js"></script>
+	<script charset="utf-8" src="json2.js"></script>
 	<script>
 		KindEditor.ready(function(K) {
 			var editor = K.editor({
@@ -17,6 +18,7 @@
 				
 				imageSizeLimit : '5MB',
 				imageFileTypes : '*.*',
+				imageFileTypesDesc : 'All Files',
 				imageUploadLimit : '1000',
 				filePostName : 'imgFile'
 			});
@@ -28,8 +30,11 @@
 							return;
 						}
 						editor.hideDialog();
-						window.returnValue="";//JSON.stringify(urlList); 
-						window.close(); 
+						var result = JSON.stringify(urlList);
+						window.returnValue=result; 
+						window.close();
+						window.parent.returnValue=result; 
+						window.parent.close(); 
 					}
 				});
 			});
